@@ -12,7 +12,7 @@ The tests are in the feedreader.js file and the test results appears at the bott
 
 
 
-## Steps to complete this project
+## The tests
 
 
 - Edit the `allFeeds` variable in **./js/app.js** to make the provided test fail and see how Jasmine visualizes this failure in your application.
