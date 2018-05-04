@@ -34,7 +34,7 @@ $(function() {
          it('urls are defined and not empty', function(){
             for(var i =0; i< allFeeds.length; i++){
                   expect(allFeeds[i].url).toBeDefined();
-            expect(allFeeds[i].url.length).not.toBe(0);
+                  expect(allFeeds[i].url.length).not.toBe(0);
             }
           
          });
@@ -67,6 +67,22 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+
+     describe('The menu', function(){
+        it('is hidden by default', function(){
+             expect($('body').hasClass('menu-hidden')).toBe(true);
+    
+        });
+       
+
+     it('working toggle when click', function(){
+        $('.menu-icon-link').trigger('click');
+        expect($('body').hasClass('menu-hidden')).toBe(false);
+        $('.menu-icon-link').trigger('click');
+        expect($('body').hasClass('menu-hidden')).toBe(true);
+
+     });   
+      });  
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
