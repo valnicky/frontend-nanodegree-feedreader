@@ -99,4 +99,39 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+    describe('Initial Entries', function(){
+        beforeEach(function(done) {
+            loadFeed(0, function(){
+                done();
+            });
+        });
+        //test if there are more than one entry in feed
+        it('if entry has more than 0 entries', function(){
+            expect($('.entry').length).toBeGreaterThan(0);
+        });
+    });  
+
+    //tests that new content is loaded by loadFeed()   
+    describe('New feed selection', function(){
+        var entriesStart, entriesEnd;
+        
+        beforeEach(function(done) {
+            $('.feed').empty();
+            loadFeed(0, function(){
+                entriesStart = $('.feed').find(allFeeds.url);
+                done();
+            });
+            loadFeed(1, function(){
+                entriesEnd = $('.feed').find(allFeeds.url);
+                done();
+            });
+        });
+
+        it('new feed is different to old one', function(){
+            expect(entriesStart).not.toBe(entriesEnd);
+        });
+    });
+
+            
 }());
